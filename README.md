@@ -14,4 +14,12 @@ Include the package in your application:
 
 ```javascript
 angular.module('app', ['gs.apibase']);
+.config(function (ApiBaseProvider) {
+  ApiBaseProvider.setUrl('http://gabesgreatapi.com');
+  ApiBaseProvider.setPrefix('api/v1');
+});
+
+.service('Something', function (ApiBase) {
+  ApiBase; // => 'http://gabesgreatapi.com/api/v1'
+});
 ```
